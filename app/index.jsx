@@ -3,7 +3,6 @@ import { useRouter } from "expo-router";
 import { useRef } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-
 const Home = () => {
   const video = useRef(null);
   const router = useRouter();
@@ -32,9 +31,9 @@ const Home = () => {
       <View style={styles.buttons}>
         <TouchableOpacity
           onPress={() => router.push("/auth/login")}
-          style={styles.button}
+          style={styles.buttonLogin}
         >
-          <Text style={styles.buttonText}>Login</Text>
+          <Text style={styles.buttonTextLogin}>Login</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => router.push("/auth/register")}
@@ -87,7 +86,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   buttons: {
-    flexDirection: "row",
+    flexDirection: "",
+    gap: 8,
     justifyContent: "space-around",
     alignItems: "center",
     position: "absolute",
@@ -97,13 +97,29 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: "#6200ea",
+    alignItems: "center",
     paddingVertical: 12,
     paddingHorizontal: 20,
-    borderRadius: 25,
+    minWidth: "90%",
+    borderRadius: 12,
+    elevation: 3, // Adds a shadow effect on Android
+  },
+  buttonLogin: {
+    backgroundColor: "white",
+    alignItems: "center",
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    minWidth: "90%",
+    borderRadius: 12,
     elevation: 3, // Adds a shadow effect on Android
   },
   buttonText: {
     color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  buttonTextLogin: {
+    color: "#6200ea",
     fontSize: 18,
     fontWeight: "bold",
   },
