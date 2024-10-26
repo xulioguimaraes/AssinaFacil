@@ -3,6 +3,7 @@ import { useRouter } from "expo-router";
 import { useRef } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
+
 const Home = () => {
   const video = useRef(null);
   const router = useRouter();
