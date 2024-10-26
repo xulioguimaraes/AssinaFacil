@@ -25,12 +25,19 @@ const Login = () => {
         onSubmit={(data) => console.log(data)}
         validationSchema={validationSchema}
       >
-        {({ values, handleChange, handleBlur, errors, touched }) => (
+        {({
+          values,
+          handleChange,
+          handleBlur,
+          errors,
+          touched,
+          handleSubmit,
+        }) => (
           <View style={styles.form}>
             <TextInput
               style={styles.input}
               placeholder="Email"
-              onChange={handleChange("email")}
+              onChangeText={handleChange("email")}
               onBlur={handleBlur("email")}
               value={values.email}
               keyboardType="email-address"
@@ -42,7 +49,7 @@ const Login = () => {
             <TextInput
               style={styles.input}
               placeholder="Password"
-              onChange={handleChange("password")}
+              onChangeText={handleChange("password")}
               onBlur={handleBlur("password")}
               value={values.password}
               secureTextEntry
@@ -51,7 +58,7 @@ const Login = () => {
               <Text style={styles.errorText}>{errors.password}</Text>
             )}
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handleSubmit}>
               <View style={styles.button}>
                 <Text style={styles.buttonText}>Login</Text>
               </View>
